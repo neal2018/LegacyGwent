@@ -189,7 +189,7 @@ namespace Cynthia.Card
         }
 
         //更新CardMap内容请务必将CardMapVersion更新
-        public static Version CardMapVersion { get; } = new Version(1, 0, 0, 26);
+        public static Version CardMapVersion { get; } = new Version(1, 0, 0, 30);
 
 
         public class MultilingualString
@@ -11230,7 +11230,7 @@ namespace Cynthia.Card
                     IsDerive = false,
                     Categories = new Categorie[] { },
                     Flavor = "远古橡树的心被仇恨腐蚀得千疮百孔。布洛克莱昂的树木万念俱灰，无风自摇。",
-                    Info = "若位于手牌、牌组或己方半场：己方回合中，有单位改变所在排别时获得1点增益",
+                    Info = "若位于手牌、牌组或己方半场：己方回合中，有单位改变所在排别时获得1点增益。",
                     CardArtsId = "d13620000",
                 }
             },
@@ -11254,7 +11254,47 @@ namespace Cynthia.Card
                     CardArtsId = "d19990000",
                 }
             },
-
+            {
+                "70034",//斯瓦勃洛图腾
+                new GwentCard()
+                {
+                    CardId = "70034",
+                    Name = "斯瓦勃洛图腾",
+                    Strength = 8,
+                    Group = Group.Gold,
+                    Faction = Faction.Skellige,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = true,
+                    Countdown = 25,//冷却25
+                    Categories = new Categorie[] {},
+                    Flavor = "虽然有人下令将所有的图腾尽数捣毁，然而在远方，在被遗忘的岛屿上，它们依然耸立……不断地荼毒新的受害者。",
+                    Info = "25回合后回合开始时，摧毁自身并生成1个“斯瓦勃洛勇士”。每当友军单位受到伤害时，减少1回合，每当友军单位被摧毁时，减少2回合。5点护甲。坚韧。",
+                    CardArtsId = "d16670000",
+                }
+            },
+            {
+                "70035",//斯瓦勃洛勇士
+                new GwentCard()
+                {
+                    CardId ="70035",
+                    Name="斯瓦勃洛勇士",
+                    Strength=12,
+                    Group = Group.Gold,
+                    Faction = Faction.Skellige,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = true,
+                    IsCountdown = true,
+                    Countdown = 3,//冷却3
+                    IsDerive = true,
+                    Categories = new Categorie[]{ Categorie.Beast, Categorie.Cursed, Categorie.Token},
+                    Flavor = "“你以为惹恼巨熊好玩吗？！”",
+                    Info = "回合结束时，摧毁对方半场1个随机最弱单位，一共可生效3次。",
+                    CardArtsId = "d13800000",
+                }
+            },
         };
 
     }
