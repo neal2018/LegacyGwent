@@ -189,7 +189,7 @@ namespace Cynthia.Card
         }
 
         //更新CardMap内容请务必将CardMapVersion更新
-        public static Version CardMapVersion { get; } = new Version(1, 0, 0, 30);
+        public static Version CardMapVersion { get; } = new Version(1, 0, 0, 32);
 
 
         public class MultilingualString
@@ -11293,6 +11293,26 @@ namespace Cynthia.Card
                     Flavor = "“你以为惹恼巨熊好玩吗？！”",
                     Info = "回合结束时，摧毁对方半场1个随机最弱单位，一共可生效3次。",
                     CardArtsId = "d13800000",
+                }
+            },
+            {
+                "70036",//齐齐摩女王
+                new GwentCard()
+                {
+                    CardId ="70036",
+                    Name = "齐齐摩女王",
+                    Strength = 12,
+                    Group = Group.Gold,
+                    Faction = Faction.Monsters,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Insectoid},
+                    Flavor = "许多虫类都有一只虫后。这一只特别要命。",
+                    Info = "吞噬己方牌组中所有战力小于5的铜色单位，每吞噬1张便获得2点增益。",
+                    CardArtsId = "d19130000",
                 }
             },
         };
