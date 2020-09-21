@@ -189,7 +189,7 @@ namespace Cynthia.Card
         }
 
         //更新CardMap内容请务必将CardMapVersion更新
-        public static Version CardMapVersion { get; } = new Version(1, 0, 0, 70);
+        public static Version CardMapVersion { get; } = new Version(1, 0, 0, 71);
 
 
         public class MultilingualString
@@ -11633,6 +11633,127 @@ namespace Cynthia.Card
                     Flavor = "“战马撒开腿后谁也拦不住。所以到时候你能做的，就是放低长枪，闭上眼睛，求老天爷开恩。”",
                     Info = "使一个友军单位与一个敌军单位对决。",
                     CardArtsId = "d17390000",
+                }
+            },
+            {
+                "70056",//邪鸦 Crow
+                new GwentCard()
+                {
+                    CardId ="70056",
+                    Name="邪鸦",
+                    Strength=4,
+                    Group=Group.Copper,
+                    Faction = Faction.Skellige,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Beast},
+                    Flavor = "“置身鸦群，你也必须鸦鸦做声。”",
+                    Info = "每当场上有3个与自身战力相同的单位时，在回合结束时召唤1张同名牌，随后使牌库中的同名牌获得1点增益。",
+                    CardArtsId = "d20140000",
+                }
+            },
+            {
+                "70057",//群岛战争 WarofClans
+                new GwentCard()
+                {
+                    CardId ="70057",
+                    Name="群岛战争",
+                    Strength=0,
+                    Group=Group.Silver,
+                    Faction = Faction.Skellige,
+                    CardUseInfo = CardUseInfo.AnyPlace,
+                    CardType = CardType.Special,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Tactic,Categorie.Special},
+                    Flavor = "兄弟反目，姐妹成仇，地上布满鲜红。",
+                    Info = "己方场上每有1种家族标签，便对全场造成1次1点伤害。",
+                    CardArtsId = "d22390000",
+                }
+            },
+            {
+                "70058",//洞穴巨魔（2点） CaveTroll2
+                new GwentCard()
+                {
+                    CardId ="70058",
+                    Name="洞穴巨魔",
+                    Strength=10,
+                    Group=Group.Copper,
+                    Faction = Faction.Monsters,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Ogroid},
+                    Flavor = "巨魔不仅没头脑，饿肚子时还容易不高兴。两样凑在一起，极其危险。",
+                    Info = "回合开始时，使1个战力最高的敌军单位获得2点增益，然后自身获得2点增益。",
+                    CardArtsId = "d19240000",
+                }
+            },
+            {
+                "70059",//独眼贝蒂 OneEyedBetsy
+                new GwentCard()
+                {
+                    CardId ="70059",
+                    Name="独眼贝蒂",
+                    Strength=10,
+                    Group=Group.Silver,
+                    Faction = Faction.Monsters,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Ogroid},
+                    Flavor = "准头是差了点，但力道确实没话说。",
+                    Info = "回合开始时，自身获得3点增益，然后使1个战力最高的敌军单位获得3点增益。",
+                    CardArtsId = "d19260000",
+                }
+            },
+            {
+                "70060",//装甲蟹蜘蛛 ArmoredArachas
+                new GwentCard()
+                {
+                    CardId ="70060",
+                    Name="装甲蟹蜘蛛",
+                    Strength=4,
+                    Group=Group.Silver,
+                    Faction = Faction.Monsters,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Insectoid},
+                    Flavor = "爪子能轻易切开半寸厚的铁板。",
+                    Info = "吞噬1个友军单位，获得其战力作为增益。使吞噬自身的单位获得额外的等同于自身战力的增益。",
+                    CardArtsId = "d19150000",
+                }
+            },
+            {
+                "70061",//辛特拉工匠 CintrianArtificer
+                new GwentCard()
+                {
+                    CardId ="70061",
+                    Name="辛特拉工匠",
+                    Strength=8,
+                    Group=Group.Copper,
+                    Faction = Faction.NorthernRealms,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Support},
+                    CrewCount = 3,
+                    Flavor = "“我应该怎么称呼它？也许叫安度瑞尔……”",
+                    Info = "操控3。",
+                    CardArtsId = "d17100000",
                 }
             },
         };
