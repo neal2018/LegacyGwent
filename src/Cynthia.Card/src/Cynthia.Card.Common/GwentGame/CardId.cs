@@ -543,5 +543,9 @@ namespace Cynthia.Card
 
         public const string VernossielsCommando = "70042";
         public const string Vernossiel = "70044";
+        public const string RenegadeMage = "70069";
+        public const string VernoHighwaymenssiel = "70070";
+        public const string StraysofSpalla = "70071";
+        public const string Radeyah = "70072";
     }
 }
