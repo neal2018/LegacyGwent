@@ -7,7 +7,7 @@ namespace Cynthia.Card
     public class KingOfBeggarsPro : CardEffect
     {//获得强化，直至战力超过对方1点或最多到18点。
         public KingOfBeggarsPro(GameCard card) : base(card) { }
-        public override async Task<int> CardPlayEffect(bool isSpying,bool isReveal)
+        public override async Task<int> CardPlayEffect(bool isSpying, bool isReveal)
         {
             //对方战力比我方高多少(算上单位自身)
             var point = Game.GetPlayersPoint(Game.AnotherPlayer(Card.PlayerIndex)) - Game.GetPlayersPoint(Card.PlayerIndex) + 1;

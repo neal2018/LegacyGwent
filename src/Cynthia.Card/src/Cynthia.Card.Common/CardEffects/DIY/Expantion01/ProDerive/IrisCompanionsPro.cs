@@ -27,12 +27,11 @@ namespace Cynthia.Card
                 var row = Game.RowToList(dcard.PlayerIndex, dcard.Status.CardRow);
                 await Game.LogicCardMove(dcard, row, 0);//将选中的卡移动到最上方
                 await Game.PlayerDrawCard(PlayerIndex);//抽卡
-                                                    //---------------------------------------------------------------------------
-                                                    //随机弃掉一张
+                                                       //随机弃掉一张
             }
             else if (switchCard == 1)//墓地
             {
-                var list = Game.PlayersCemetery[Card.PlayerIndex].Where(x=>!x.HasAllCategorie(Categorie.Leader)).ToList();
+                var list = Game.PlayersCemetery[Card.PlayerIndex].Where(x => !x.HasAllCategorie(Categorie.Leader)).ToList();
                 //让玩家选择
                 var result = await Game.GetSelectMenuCards(Card.PlayerIndex, list, isCanOver: true);
                 if (result.Count() != 0)

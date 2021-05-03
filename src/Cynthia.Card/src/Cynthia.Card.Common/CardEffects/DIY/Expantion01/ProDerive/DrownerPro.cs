@@ -17,7 +17,8 @@ namespace Cynthia.Card
                 {
                     return 0;
                 }
-                if (!(await Game.GetSelectPlaceCards(Card, selectMode: SelectModeType.EnemyRow, filter: x => x.Status.CardRow != Card.Status.CardRow)).TrySingle(out var target))
+                if (!(await Game.GetSelectPlaceCards(Card, selectMode: SelectModeType.EnemyRow,
+                        filter: x => x.Status.CardRow != Card.Status.CardRow)).TrySingle(out var target))
                 {
                     return 0;
                 }

@@ -21,7 +21,7 @@ namespace Cynthia.Card
                 return 0;
             }
             await swapHandCard2.Effect.Swap(swapDeckCard2);
-            
+
             var deckGroup = Game.PlayersDeck[PlayerIndex].Select(x => x.Status.Group).Distinct().ToArray();
             var selectList = Game.PlayersHandCard[PlayerIndex].Where(x => x.IsAnyGroup(deckGroup)).ToList();
             if (!(await Game.GetSelectMenuCards(PlayerIndex, selectList)).TrySingle(out var swapHandCard))
@@ -33,7 +33,7 @@ namespace Cynthia.Card
                 return 0;
             }
             await swapHandCard.Effect.Swap(swapDeckCard);
-            
+
             return 0;
         }
     }

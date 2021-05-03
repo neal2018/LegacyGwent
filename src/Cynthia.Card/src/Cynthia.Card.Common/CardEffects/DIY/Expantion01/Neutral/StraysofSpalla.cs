@@ -12,7 +12,8 @@ namespace Cynthia.Card
         {
             //打乱己方卡组,并且取3张铜色非同名单位牌
             var list = Game.PlayersDeck[Card.PlayerIndex]
-            .Where(x => x.Status.Group == Group.Copper && x.CardInfo().CardType == CardType.Unit && x.CardInfo().CardId != Card.CardInfo().CardId).Mess(RNG).Take(3);
+            .Where(x => x.Status.Group == Group.Copper && x.CardInfo().CardType == CardType.Unit
+                        && x.CardInfo().CardId != Card.CardInfo().CardId).Mess(RNG).Take(3);
             //让玩家选择一张卡
             var result = await Game.GetSelectMenuCards
             (Card.PlayerIndex, list.ToList(), 1, "选择打出一张牌");

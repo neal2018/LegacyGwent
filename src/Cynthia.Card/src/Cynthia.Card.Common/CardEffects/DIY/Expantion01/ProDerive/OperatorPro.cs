@@ -22,12 +22,12 @@ namespace Cynthia.Card
             {
                 return 0;
             }
-            var cards = Game.PlayersHandCard[PlayerIndex].Where(x => 
-            (x.Is(Group.Copper, CardType.Unit)||x.Is(Group.Silver, CardType.Unit)) &&
-            x.CardInfo().CardId != CardId.Operator && x.CardInfo().CardId != CardId.Udalryk &&
-            x.CardInfo().CardId != CardId.Cantarella && x.CardInfo().CardId != CardId.Ocvist &&
-            x.CardInfo().CardId != CardId.Yaevinn && x.CardInfo().CardId != CardId.Thaler &&
-            x.CardInfo().CardId != CardId.Frightener).ToList();
+            var cards = Game.PlayersHandCard[PlayerIndex].Where(x =>
+                (x.Is(Group.Copper, CardType.Unit) || x.Is(Group.Silver, CardType.Unit)) &&
+                x.CardInfo().CardId != CardId.Operator && x.CardInfo().CardId != CardId.Udalryk &&
+                x.CardInfo().CardId != CardId.Cantarella && x.CardInfo().CardId != CardId.Ocvist &&
+                x.CardInfo().CardId != CardId.Yaevinn && x.CardInfo().CardId != CardId.Thaler &&
+                x.CardInfo().CardId != CardId.Frightener).ToList();
             if (!(await Game.GetSelectMenuCards(PlayerIndex, cards)).TrySingle(out var target))
             {
                 return 0;

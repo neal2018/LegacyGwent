@@ -15,12 +15,12 @@ namespace Cynthia.Card
             var vesemirs = myDeck.Where(x => x.Status.CardId == CardId.Vesemir).ToList();
             foreach (var eskel in eskels)
             {
-                await eskel.Effect.Transform(eskel.CardInfo().CardId+"0", Card, isForce:true);
+                await eskel.Effect.Transform(eskel.CardInfo().CardId + "0", Card, isForce: true);
                 await eskel.Effect.Summon(Card.GetLocation() + 1, Card);
             }
             foreach (var vesemir in vesemirs)
             {
-                await vesemir.Effect.Transform(vesemir.CardInfo().CardId+"0", Card, isForce:true);
+                await vesemir.Effect.Transform(vesemir.CardInfo().CardId + "0", Card, isForce: true);
                 await vesemir.Effect.Summon(Card.GetLocation() + 1, Card);
             }
             return 0;
