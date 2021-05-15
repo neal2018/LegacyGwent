@@ -10,17 +10,21 @@ namespace Cynthia.Card
         public EskelPro(GameCard card) : base(card) { }
         public override async Task<int> CardPlayEffect(bool isSpying, bool isReveal)
         {
+            if (true)
+            {
+
+            }
             var myDeck = Game.PlayersDeck[PlayerIndex].ToList();
             var lamberts = myDeck.Where(x => x.Status.CardId == CardId.Lambert).ToList();
             var vesemirs = myDeck.Where(x => x.Status.CardId == CardId.Vesemir).ToList();
             foreach (var lambert in lamberts)
             {
-                await lambert.Effect.Transform(lambert.CardInfo().CardId + "0", Card, isForce: true);
+                await lambert.Effect.Transform(lambert.CardInfo().CardId+"0", Card, isForce:true);
                 await lambert.Effect.Summon(Card.GetLocation(), Card);
             }
             foreach (var vesemir in vesemirs)
             {
-                await vesemir.Effect.Transform(vesemir.CardInfo().CardId + "0", Card, isForce: true);
+                await vesemir.Effect.Transform(vesemir.CardInfo().CardId+"0", Card, isForce:true);
                 await vesemir.Effect.Summon(Card.GetLocation(), Card);
             }
             return 0;

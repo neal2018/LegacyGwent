@@ -662,6 +662,7 @@ namespace Cynthia.Card
             setting(Card);
             await Game.ShowSetCard(Card);
             await Game.SetPointInfo();
+            await Game.SendEvent(new AfterTransform(Card, source));
             //8888888888888888888888888888888888888888888888888888888888888888888888
             //变为,应该触发对应事件<暂未定义,待补充>
             //8888888888888888888888888888888888888888888888888888888888888888888888

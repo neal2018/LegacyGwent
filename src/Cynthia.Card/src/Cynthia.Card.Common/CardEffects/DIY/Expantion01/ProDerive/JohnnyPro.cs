@@ -11,19 +11,19 @@ namespace Cynthia.Card
         public override async Task<int> CardPlayEffect(bool isSpying, bool isReveal)
         {
             var cards = await Game.GetSelectMenuCards(PlayerIndex, Game.PlayersHandCard[PlayerIndex]);
-            if (!cards.TrySingle(out var target))
+            if(!cards.TrySingle(out var target))
             {
                 return 0;
             }
             var targetGroup = target.Status.Group;
-            if (!Game.PlayerBaseDeck[AnotherPlayer].Deck.Where(x => x.Group == targetGroup).Select(x => x.CardId).TryMessOne(out var targetId, Game.RNG))
+            if(!Game.PlayerBaseDeck[AnotherPlayer].Deck.Where(x=>x.Group==targetGroup).Select(x=>x.CardId).TryMessOne(out var targetId,Game.RNG))
             {
                 return 0;
             }
             await target.Effect.Discard(Card);
 
 
-            var list = Game.PlayerBaseDeck[AnotherPlayer].Deck.Where(x => x.Group == targetGroup)
+            var list = Game.PlayerBaseDeck[AnotherPlayer].Deck.Where(x=>x.Group==targetGroup)
                 .Mess(RNG).Take(3).Select(x => x.CardId)
                 .ToList();
 

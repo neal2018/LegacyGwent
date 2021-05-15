@@ -9,14 +9,14 @@ namespace Cynthia.Card
     {//造成 4、3、2、1 点伤害。
         public MyrgtabrakkePro(GameCard card) : base(card) { }
 
-        private int[] damageValues = { 4, 3, 2, 1 };
+        private int[] damageValue = { 4, 3, 2, 1 };
         public override async Task<int> CardPlayEffect(bool isSpying, bool isReveal)
         {
             for (var i = 0; i < 4; i++)
             {
                 var result = await Game.GetSelectPlaceCards(Card);
                 if (result.Count <= 0) return 0;
-                await result.Single().Effect.Damage(damageValues[i], Card, BulletType.FireBall);
+                await result.Single().Effect.Damage(damageValue[i], Card, BulletType.FireBall);
             }
             return 0;
         }

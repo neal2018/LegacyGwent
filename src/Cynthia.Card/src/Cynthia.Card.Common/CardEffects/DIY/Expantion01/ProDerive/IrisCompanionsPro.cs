@@ -4,7 +4,7 @@ using Alsein.Extensions;
 
 namespace Cynthia.Card
 {
-    [CardEffectId("130040")]//爱丽丝的同伴
+    [CardEffectId("130040")]//爱丽丝的同伴：晋升
     public class IrisCompanionsPro : CardEffect
     {//将1张牌从牌组、己方半场或墓地移至手牌，然后随机丢弃1张牌。
         public IrisCompanionsPro(GameCard card) : base(card) { }
@@ -14,6 +14,7 @@ namespace Cynthia.Card
             var switchCard = await Card.GetMenuSwitch
             (
                 ("牌组", "将1张牌从牌组移至手牌，然后随机丢弃1张牌。"),
+                ("己方半场", "将1张牌从己方半场移至手牌，然后随机丢弃1张牌。"),
                 ("墓地", "将1张牌从墓地移至手牌，然后随机丢弃1张牌。")
             );
             if (switchCard == 0)//牌组
@@ -27,11 +28,21 @@ namespace Cynthia.Card
                 var row = Game.RowToList(dcard.PlayerIndex, dcard.Status.CardRow);
                 await Game.LogicCardMove(dcard, row, 0);//将选中的卡移动到最上方
                 await Game.PlayerDrawCard(PlayerIndex);//抽卡
-                                                       //随机弃掉一张
+                                                    //---------------------------------------------------------------------------
+                                                    //随机弃掉一张
             }
-            else if (switchCard == 1)//墓地
+            else if (switchCard == 1)//半场
             {
-                var list = Game.PlayersCemetery[Card.PlayerIndex].Where(x => !x.HasAllCategorie(Categorie.Leader)).ToList();
+                var result = await Game.GetSelectPlaceCards(Card, selectMode: SelectModeType.MyRow);
+                if (result.Count() > 0)
+                {
+                    result.Single().Effect.Repair(true);
+                    await Game.ShowCardMove(new CardLocation() { RowPosition = RowPosition.MyHand, CardIndex = 0 }, result.Single(), refreshPoint: true);
+                }
+            }
+            else if (switchCard == 2)//墓地
+            {
+                var list = Game.PlayersCemetery[Card.PlayerIndex].Where(x=>!x.HasAllCategorie(Categorie.Leader)).ToList();
                 //让玩家选择
                 var result = await Game.GetSelectMenuCards(Card.PlayerIndex, list, isCanOver: true);
                 if (result.Count() != 0)
