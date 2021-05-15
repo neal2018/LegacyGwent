@@ -6,7 +6,7 @@ namespace Cynthia.Card
 {
     [CardEffectId("130100")]//奥克维斯塔：晋升
     public class OcvistPro : CardEffect, IHandlesEvent<AfterTurnStart>
-    {//力竭。 3回合后的回合开始时：对所有敌军单位造成1点伤害，随后返回手牌。
+    {//力竭。 2回合后的回合开始时：对所有敌军单位造成1点伤害，随后返回手牌。
         public OcvistPro(GameCard card) : base(card) { }
 
         private bool _isUse = false;

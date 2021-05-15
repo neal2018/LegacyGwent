@@ -6,7 +6,7 @@ namespace Cynthia.Card
 {
     [CardEffectId("130160")]//操作者：晋升
     public class OperatorPro : CardEffect
-    {//力竭。 休战：为双方各添加1张己方手牌1张非“力竭”铜色/银色牌的原始同名牌。
+    {//力竭。休战：为双方各添加1张己方手牌1张非“力竭”铜色/银色单位牌的原始同名牌。
         public OperatorPro(GameCard card) : base(card) { }
 
         public bool IsUse { get; set; } = false;
@@ -22,12 +22,13 @@ namespace Cynthia.Card
             {
                 return 0;
             }
-            var cards = Game.PlayersHandCard[PlayerIndex].Where(x =>
-                (x.Is(Group.Copper, CardType.Unit) || x.Is(Group.Silver, CardType.Unit)) &&
-                x.CardInfo().CardId != CardId.Operator && x.CardInfo().CardId != CardId.Udalryk &&
-                x.CardInfo().CardId != CardId.Cantarella && x.CardInfo().CardId != CardId.Ocvist &&
-                x.CardInfo().CardId != CardId.Yaevinn && x.CardInfo().CardId != CardId.Thaler &&
-                x.CardInfo().CardId != CardId.Frightener).ToList();
+            var cards = Game.PlayersHandCard[PlayerIndex].Where(x => 
+            (x.Is(Group.Copper, CardType.Unit)||x.Is(Group.Silver, CardType.Unit)) &&
+            x.CardInfo().CardId != CardId.Operator && x.CardInfo().CardId != CardId.Udalryk &&
+            x.CardInfo().CardId != CardId.Cantarella && x.CardInfo().CardId != CardId.Ocvist &&
+            x.CardInfo().CardId != CardId.Yaevinn && x.CardInfo().CardId != CardId.Thaler &&
+            x.CardInfo().CardId != CardId.Frightener && x.CardInfo().CardId != CardId.Highwaymen &&
+            x.CardInfo().CardId != CardId.StraysofSpalla).ToList();
             if (!(await Game.GetSelectMenuCards(PlayerIndex, cards)).TrySingle(out var target))
             {
                 return 0;

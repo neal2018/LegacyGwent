@@ -10,8 +10,7 @@ namespace Cynthia.Card
         public DorregarayOfVolePro(GameCard card) : base(card) { }
         public override async Task<int> CardPlayEffect(bool isSpying, bool isReveal)
         {
-            return await Card.CreateAndMoveStay(CardId.SavageBear + "0",
-                    CardId.Wyvern + "0", CardId.Barbegazi + "0", CardId.Drowner + "0");
+            return await Card.CreateAndMoveStay(CardId.SavageBear+"0", CardId.Wyvern+"0", CardId.Barbegazi+"0", CardId.Drowner+"0");
         }
     }
 }

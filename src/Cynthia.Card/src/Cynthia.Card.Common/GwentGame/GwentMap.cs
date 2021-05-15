@@ -140,6 +140,7 @@ namespace Cynthia.Card
             { Categorie.Token, "退场" },
             { Categorie.Agent, "密探" },
             { Categorie.ClanBrokvar, "布洛克瓦尔家族" },
+            { Categorie.FireFollowers, "火誓者" },
             { Categorie.Test, "测试" },
         };
 
@@ -189,7 +190,7 @@ namespace Cynthia.Card
         }
 
         //更新CardMap内容请务必将CardMapVersion更新
-        public static Version CardMapVersion { get; } = new Version(1, 0, 0, 72);
+        public static Version CardMapVersion { get; } = new Version(1, 0, 0, 73);
 
 
         public class MultilingualString
@@ -11703,7 +11704,7 @@ namespace Cynthia.Card
                     Name="独眼贝蒂",
                     Strength=10,
                     Group=Group.Silver,
-                    Faction = Faction.Monsters,
+                    Faction = Faction.Neutral,
                     CardUseInfo = CardUseInfo.MyRow,
                     CardType = CardType.Unit,
                     IsDoomed = false,
@@ -11757,6 +11758,26 @@ namespace Cynthia.Card
                 }
             },
             {
+                "70062",//活体盔甲 LivingArmor
+                new GwentCard()
+                {
+                    CardId ="70062",
+                    Name="活体盔甲",
+                    Strength=10,
+                    Group = Group.Gold,
+                    Faction = Faction.Neutral,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[] { Categorie.Construct},
+                    Flavor = "价钱是贵了点。但是你把节省下来的吃住都算进去，不出一百年就能回本！",
+                    Info = "己方半场同排单位单次最多受到5点伤害。", 
+                    CardArtsId = "d19280000",
+                }
+            },
+            {
                 "70069",//脱逃的法师 RenegadeMage
                 new GwentCard()
                 {
@@ -11792,7 +11813,7 @@ namespace Cynthia.Card
                     IsDerive = false,
                     Categories = new Categorie[]{ Categorie.Tactic,Categorie.Special},
                     Flavor = "“商人？抹了。马匹？卖了。”",
-                    Info = "若己方起始牌组仅有铜色牌，则生成1张“史帕拉流亡军”，并将2张“史帕拉流亡军”加入牌组。（6战力，士兵，佚亡，检视己方牌组中3张铜色非同名单位牌，随后打出1张。）",
+                    Info = "力竭。若己方起始牌组仅有铜色牌，则生成1张“史帕拉流亡军”，并将2张“史帕拉流亡军”加入牌组。",
                     CardArtsId = "d15570000",
                 }
             },
@@ -11812,7 +11833,7 @@ namespace Cynthia.Card
                     IsDerive = true,
                     Categories = new Categorie[]{ Categorie.Soldier,Categorie.Doomed},
                     Flavor = "“嗷，嗷，嗷嗷！”",
-                    Info = "检视己方牌组中3张铜色非同名单位牌，随后打出1张。",
+                    Info = "力竭。检视己方牌组中3张铜色非同名单位牌，随后打出1张。",
                     CardArtsId = "d15190000",
                 }
             },
@@ -11833,8 +11854,330 @@ namespace Cynthia.Card
                     Categories = new Categorie[]{ Categorie.Mage},
                     HideTags = new HideTag[]{HideTag.Triss},
                     Flavor = "“迷人的微笑背后可以潜藏许多秘密……”",
-                    Info = "造成等同于手牌中立牌数量的伤害，并将手牌中2张核心系列中立银色单位牌变为金色晋升牌。",
+                    Info = "造成等同于手牌中立牌数量的伤害，并将手牌和牌组中2张核心系列中立银色单位牌变为金色晋升牌。",
                     CardArtsId = "d20020000",
+                }
+            },
+            {
+                "70076",//集会传教士 CongregationCleric
+                new GwentCard()
+                {
+                    CardId ="70076",
+                    Name="集会传教士",
+                    Strength=7,
+                    Group=Group.Copper,
+                    Faction = Faction.NorthernRealms,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.FireFollowers},
+                    Flavor = "“靠近点，羔羊，再近点。愿永恒之火温暖你的灵魂！”",
+                    Info = "己方回合中，每当铜色单位被锁定，在同排召唤其2战力的原始同名牌。",
+                    CardArtsId = "d18640000",
+                }
+            },
+            {
+                "70077",//火誓狂热者 FireswornZealot
+                new GwentCard()
+                {
+                    CardId ="70077",
+                    Name="火誓狂热者",
+                    Strength=8,
+                    Group=Group.Copper,
+                    Faction = Faction.NorthernRealms,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    Countdown = 4,
+                    IsDoomed = false,
+                    IsCountdown = true,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.FireFollowers},
+                    Flavor = "“靠近点，羔羊，再近点。愿永恒之火温暖你的灵魂！”",
+                    Info = "每4回合，在回合结束时对4个随机敌军单位造成2点伤害。场上每有一个被锁定的的单位，减少1次回合计数。",
+                    CardArtsId = "d19100000",
+                }
+            },
+            {
+                "70078",//烈火责罚 Damnation
+                new GwentCard()
+                {
+                    CardId ="70078",
+                    Name="烈火责罚",
+                    Strength=0,
+                    Group=Group.Gold,
+                    Faction = Faction.NorthernRealms,
+                    CardUseInfo = CardUseInfo.AnyPlace,
+                    CardType = CardType.Special,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Tactic,Categorie.Special},
+                    Flavor = "“呛死我了！就不能去别的地方烧吗？”",
+                    Info = "从牌组召唤2张最强铜色单位牌到同排，改变其锁定状态。",
+                    CardArtsId = "d18620000",
+                }
+            },
+            {
+                "70079",//迦勒·曼吉 CalebMenge
+                new GwentCard()
+                {
+                    CardId ="70079",
+                    Name="迦勒·曼吉",
+                    Strength=9,
+                    Group=Group.Silver,
+                    Faction = Faction.NorthernRealms,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.FireFollowers},
+                    Flavor = "“骗子、异端、女巫！他们涌入我们的城市；腐化我们的品德，威胁我们的生活！”",
+                    Info = "摧毁一个友方“法师”单位，获得等同于其基础战力的强化。若为银色单位，额外获得3点强化。若为金色单位，额外获得5点强化。",
+                    CardArtsId = "d13990000",
+                }
+            },
+            {
+                "70080",//菲斯奈特 Freixenet
+                new GwentCard()
+                {
+                    CardId ="70080",
+                    Name="菲斯奈特",
+                    Strength=9,
+                    Group=Group.Gold,
+                    Faction = Faction.ScoiaTael,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Soldier},
+                    Flavor = "开始她只把他当成生儿育女的工具，可最后他们却相爱了。",
+                    Info = "使一个单位的战力等同于自身战力。",
+                    CardArtsId = "d22100000",
+                }
+            },
+            {
+                "70082",//林语者 ForestWhisperer
+                new GwentCard()
+                {
+                    CardId = "70082",
+                    Name = "林语者",
+                    Strength = 8,
+                    Group = Group.Copper,
+                    Faction = Faction.ScoiaTael,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Dryad},
+                    Flavor = "布洛克莱昂的树精掌握着一项别致的手艺：随心所欲地变化树形……并赋予它们生命。”",
+                    Info = "对1个敌军单位造成等同于同排“树精”单位数量的伤害，并将其上移一排。",
+                    CardArtsId = "d14390000",
+                }
+            },
+            {
+                "70083",//树精族母 DryadMatron
+                new GwentCard()
+                {
+                    CardId = "70083",
+                    Name = "树精族母",
+                    Strength = 8,
+                    Group = Group.Copper,
+                    Faction = Faction.ScoiaTael,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Dryad},
+                    Flavor = "她将许多有用的技能教给年轻的树精：制作箭矢，与森林沟通，以及狩猎进入森林的人类……",
+                    Info = "使变形为“树精”或后续出现的其他友军“树精”单位获得2点强化。", 
+                    CardArtsId = "d16790000",
+                }
+            },
+            {
+                "70084",//新生树精 DryadFledgling
+                new GwentCard()
+                {
+                    CardId = "70084",
+                    Name = "新生树精",
+                    Strength = 7,
+                    Group = Group.Copper,
+                    Faction = Faction.ScoiaTael,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = true,
+                    Categories = new Categorie[]{ Categorie.Dryad},
+                    Flavor = "她最近才喝下布洛克莱昂之水，对新的身份还不是很习惯。不过，她索命的天赋倒是与日俱增。",
+                    Info = "无特殊能力。",
+                    CardArtsId = "d17460000",
+                }
+            },
+            {
+                "70085",//布洛克莱昂之水 WaterofBrokilon
+                new GwentCard()
+                {
+                    CardId ="70085",
+                    Name="布洛克莱昂之水",
+                    Strength=0,
+                    Group=Group.Silver,
+                    Faction = Faction.ScoiaTael,
+                    CardUseInfo = CardUseInfo.AnyPlace,
+                    CardType = CardType.Special,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Item,Categorie.Special},
+                    Flavor = "“喝吧，孩子。洗涤你的过去，洗去烦恼。喝下去，就能成为我们的姐妹！”",
+                    Info = "将单排上所有非“树精”单位变为等战力的“新生树精”。",
+                    CardArtsId = "d13710000",
+                }
+            },
+            {
+                "70090",//吸血鬼女 Alp
+                new GwentCard()
+                {
+                    CardId = "70090",
+                    Name = "吸血鬼女",
+                    Strength = 3,
+                    Group = Group.Copper,
+                    Faction = Faction.Monsters,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Vampire},
+                    Flavor = "长久以来，恐怖的梦魇让镇民苦不堪言。走投无路之下，他们只好贴出一张告示，盼望能够请到救兵……“嗯。一定是吸血鬼女作祟。”猎魔人嘟囔道。",
+                    Info = "对一个敌军单位造成等同于自身战力的伤害，随后失去所有增益。若位于手牌或牌组，己方每发动1次汲食获得1点增益。",
+                    CardArtsId = "d13850000",
+                }
+            },
+            {
+                "70091",//解梦术 Oneiromancy
+                new GwentCard()
+                {
+                    CardId ="70091",
+                    Name="解梦术",
+                    Strength=0,
+                    Group=Group.Gold,
+                    Faction = Faction.Neutral,
+                    CardUseInfo = CardUseInfo.AnyPlace,
+                    CardType = CardType.Special,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Spell,Categorie.Special},
+                    Flavor = "破译梦境中的过去和未来是非常困难的，即使对大师也是如此。",
+                    Info = "择一：创造己方起始牌组中的1张非“密探”牌；或将3张随机非同名手牌变为“解梦术”。",
+                    CardArtsId = "d18520000",
+                }
+            },
+            {
+                "70092",//自由集会 FreeCompany
+                new GwentCard()
+                {
+                    CardId ="70092",
+                    Name="自由集会",
+                    Strength=0,
+                    Group=Group.Silver,
+                    Faction = Faction.Neutral,
+                    CardUseInfo = CardUseInfo.AnyPlace,
+                    CardType = CardType.Special,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Tactic,Categorie.Special},
+                    Flavor = "“那是因为我们自由自在！哈哈哈！”",
+                    Info = "检视己方牌组中3张铜色单位牌，随后召唤1张，并使所有与它同类型的友军单位获得1点增益。",
+                    CardArtsId = "d18030000",
+                }
+            },
+            {
+                "70093",//布拉维坎的音乐家 MusiciansofBlaviken
+                new GwentCard()
+                {
+                    CardId = "70093",
+                    Name = "布拉维坎的音乐家",
+                    Strength = 4,
+                    Group = Group.Silver,
+                    Faction = Faction.Neutral,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = true,
+                    IsDerive = false,
+                    Countdown = 4,
+                    Categories = new Categorie[]{ Categorie.Beast},
+                    Flavor = "“咯咯咯！喵喵喵！汪汪汪！咴咴咴！”",
+                    Info = "坚韧。 若位于手牌，己方打出战力高于自身的单位时，获得3点增益。一共可生效4次。",
+                    CardArtsId = "d17000000",
+                }
+            },
+            {
+                "70098",//渴血鸟怪 Plumard
+                new GwentCard()
+                {
+                    CardId = "70098",
+                    Name = "渴血鸟怪",
+                    Strength = 4,
+                    Group = Group.Copper,
+                    Faction = Faction.Monsters,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Vampire},
+                    Flavor = "一只构成不了什么威胁。要是有一群？那就很要命了。",
+                    Info = "生成1张佚亡原始同名牌。每当己方非同名牌造成汲食，便汲食目标单位1点战力。",
+                    CardArtsId = "d16600000",
+                }
+            },
+            {
+                "70099",//夜之女王 QueenoftheNight
+                new GwentCard()
+                {
+                    CardId = "70099",
+                    Name = "夜之女王",
+                    Strength = 5,
+                    Group = Group.Silver,
+                    Faction = Faction.Monsters,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Vampire},
+                    Flavor = "被她魅惑的人宁愿付出任何代价。",
+                    Info = "若位于手牌或牌组：保持自身增益与己方两回合内造成的汲食战力相同。",
+                    CardArtsId = "d16830000",
+                }
+            },
+            {
+                "70102",// 狄拉夫：猩红诅咒 DetlaffCrimsonCurse
+                new GwentCard()
+                {
+                    CardId = "70102",
+                    Name = "狄拉夫：猩红诅咒",
+                    Strength = 3,
+                    Group = Group.Gold,
+                    Faction = Faction.Monsters,
+                    CardUseInfo = CardUseInfo.MyRow,
+                    CardType = CardType.Unit,
+                    IsDoomed = false,
+                    IsCountdown = false,
+                    IsDerive = false,
+                    Categories = new Categorie[]{ Categorie.Vampire},
+                    Flavor = "“若是月亮一片血红，那就速速紧闭门窗，让宝宝快快上床……",
+                    Info = "放逐己方墓地中1张铜色“野兽”或“吸血鬼”，随后择一：在己方半场降下3排“满月”；或在对方半场降下3排“血月”。",
+                    CardArtsId = "d18350000",
                 }
             },
             //---------------------------------------------------------------------------
@@ -11988,7 +12331,7 @@ namespace Cynthia.Card
                 {
                     CardId ="130020",
                     Name="乞丐王：晋升",
-                    Strength=8,
+                    Strength=7,
                     Group=Group.Gold,
                     Faction = Faction.Neutral,
                     CardUseInfo = CardUseInfo.MyRow,
@@ -11998,7 +12341,7 @@ namespace Cynthia.Card
                     IsDerive = true,
                     Categories = new Categorie[]{ Categorie.Support},
                     Flavor = "要是我缺鼻子或者断手了，那显然，乞丐王接受这两种付款方式。",
-                    Info = "获得强化，直至战力超过对方1点或最多到18点。",
+                    Info = "获得强化，直至战力超过对方1点或最多到20点。",
                     CardArtsId = "11221300",
                 }
             },
@@ -12008,7 +12351,7 @@ namespace Cynthia.Card
                 {
                     CardId ="130160",
                     Name="操作者：晋升",
-                    Strength=6,
+                    Strength=7,
                     Group=Group.Gold,
                     Faction = Faction.Neutral,
                     CardUseInfo = CardUseInfo.MyRow,
@@ -12128,18 +12471,18 @@ namespace Cynthia.Card
                 {
                     CardId ="130100",
                     Name="奥克维斯塔：晋升",
-                    Strength=10,
+                    Strength=9,
                     Group=Group.Gold,
                     Faction = Faction.Neutral,
                     CardUseInfo = CardUseInfo.MyRow,
                     CardType = CardType.Unit,
-                    Countdown = 3,
+                    Countdown = 2,
                     IsDoomed = false,
                     IsCountdown = true,
                     IsDerive = true,
                     Categories = new Categorie[]{ Categorie.Draconid},
                     Flavor = "他是石英山之主，毁灭者，图拉真的屠夫。但在闲暇时间里，他喜欢远足和烛光晚餐。",
-                    Info = "力竭。 3回合后的回合开始时：对所有敌军单位造成1点伤害，随后返回手牌。",
+                    Info = "力竭。 2回合后的回合开始时：对所有敌军单位造成1点伤害，随后返回手牌。",
                     CardArtsId = "11220600",
                 }
             },
@@ -12229,7 +12572,7 @@ namespace Cynthia.Card
                 {
                     CardId ="130070",
                     Name="斯崔葛布：晋升",
-                    Strength=10,
+                    Strength=12,
                     Group=Group.Gold,
                     Faction = Faction.Neutral,
                     CardUseInfo = CardUseInfo.MyRow,
@@ -12259,7 +12602,7 @@ namespace Cynthia.Card
                     IsDerive = true,
                     Categories = new Categorie[]{ Categorie.Relict},
                     Flavor = "来陪小莎拉玩游戏吧！",
-                    Info = "交换2张颜色相同的牌。",
+                    Info = "交换3张颜色相同的牌。",
                     CardArtsId = "11221200",
                 }
             },
@@ -12279,7 +12622,7 @@ namespace Cynthia.Card
                     IsDerive = true,
                     Categories = new Categorie[]{ Categorie.Relict},
                     Flavor = "我们的名字还是不说为好。就当我们是……主人家的朋友吧。",
-                    Info = "将1张非领袖牌从牌组或墓地移至手牌，然后随机丢弃1张牌。",
+                    Info = "将1张牌从牌组、己方半场或墓地移至手牌，然后随机丢弃1张牌。",
                     CardArtsId = "20008300",
                 }
             },
@@ -12289,7 +12632,7 @@ namespace Cynthia.Card
                 {
                     CardId ="640080",
                     Name="恶熊：晋升",
-                    Strength=10,
+                    Strength=11,
                     Group=Group.Silver,
                     Faction = Faction.Skellige,
                     CardUseInfo = CardUseInfo.MyRow,
