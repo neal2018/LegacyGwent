@@ -1,16 +1,13 @@
 namespace Cynthia.Card
 {
-    //发生吸血后
-    public class AfterCardDrain : Event
+    //卡牌变形后
+    public class AfterTransform : Event
     {
         public GameCard Target { get; set; }
         public GameCard Source { get; set; }
-        public int Num { get; set; }
-
-        public AfterCardDrain( GameCard source, int num, GameCard target)
+        public AfterTransform(GameCard target, GameCard source)
         {
             Target = target;
-            Num = num;
             Source = source;
         }
     }

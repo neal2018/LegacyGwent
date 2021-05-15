@@ -73,5 +73,6 @@ namespace Cynthia.Card
         Agent,          //密探
         ClanBrokvar,    //布洛克瓦尔家族
         Test,           //测试
+        FireFollowers,  //火誓者
     }
 }
