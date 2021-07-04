@@ -47,7 +47,10 @@ jobs:
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
           projectPath: src/Cynthia.Card.Unity/src/Cynthia.Unity.Card
-          buildName: DiyGwent-${{ matrix.targetPlatform }}
+          buildName: DiyGwent-${{ github.ref }}-${{ matrix.targetPlatform }}
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r DiyGwent-${{ github.ref }}-${{ matrix.targetPlatform }}.zip DiyGwent-${{ github.ref }}-${{ matrix.targetPlatform }}
       - uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ needs.create_release.outputs.upload_url }}
