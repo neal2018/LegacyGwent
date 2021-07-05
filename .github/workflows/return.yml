@@ -1,0 +1,12 @@
+name: return license
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Return License
+      - name: Return license
+        uses: game-ci/unity-return-license@v1
