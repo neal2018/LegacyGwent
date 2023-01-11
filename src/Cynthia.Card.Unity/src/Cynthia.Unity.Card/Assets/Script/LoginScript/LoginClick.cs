@@ -60,7 +60,7 @@ public class LoginClick : MonoBehaviour
         if (IsLogining) return;
         IsLogining = true;
         LogMessage.text = _translator.GetText("LoginMenu_LoggingIn");
-        try
+        
         {
             var hub = DependencyResolver.Container.ResolveNamed<HubConnection>("game");
             if (hub.State == HubConnectionState.Disconnected)
@@ -77,22 +77,6 @@ public class LoginClick : MonoBehaviour
             SceneManager.LoadScene("Game");
             _client.ClientState = ClientState.Standby;
             // Debug.Log("执行了!跳转后");
-            IsLogining = false;
-        }
-        catch
-        {
-            //await DependencyResolver.Container.ResolveNamed<HubConnection>().Named("game").StartAsync();
-            //await _client.Login(Username.text, Password.text);
-            //if (_client.User == null)
-            //{
-            LogMessage.text = _translator.GetText("LoginMenu_LoginError");
-            //"发生异常,原因或许是服务器未开启,尝试重试或者联系作者";
-            //    return;
-            //}
-        }
-        finally
-        {
-            // Debug.Log("执行了!finally");
             IsLogining = false;
         }
     }
