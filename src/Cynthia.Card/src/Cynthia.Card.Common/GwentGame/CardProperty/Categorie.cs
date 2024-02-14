@@ -72,6 +72,7 @@ namespace Cynthia.Card
         Token,          //退场
         Agent,          //密探
         ClanBrokvar,    //布洛克瓦尔家族
+        Druid,    //布洛克瓦尔家族
         Test,           //测试
     }
 }

@@ -146,6 +146,7 @@ namespace Cynthia.Card
             { Categorie.Token, "Token" },
             { Categorie.Agent, "Agent" },
             { Categorie.ClanBrokvar, "ClanBrovkar" },
+            { Categorie.Druid, "Druid" },
             { Categorie.Test, "Test" },
         };
 
@@ -224,7 +225,7 @@ namespace Cynthia.Card
                     IsDoomed = false,
                     IsCountdown = false,
                     IsDerive = false,
-                    Categories = new Categorie[]{ Categorie.Witcher},
+                    Categories = new Categorie[]{ Categorie.Witcher, Categorie.Druid},
                     HideTags = new HideTag[]{HideTag.Geralt},
                     Flavor = "如果要付出这种代价方能拯救世界，那就让世界毁灭算了。",
                     Info = "没有特殊技能。",
